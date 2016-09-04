@@ -6,6 +6,10 @@ from PIL import Image
 from knn import knn
 url=r"C:\Users\byharbour\Desktop\AutoPostingMarching\pic_test"
 
+# 当前项目有两个文件，image_deal为图片处理，knn为分类。
+#读取的是一本地存放待识别图片的文件目录url，image_deal处理之后传给
+#knn.py文件，然后返回一个字符串类型的识别的字符 "xxxx.png" ，切将识别之后的图片以识别之后
+#的名称命名并保存在本地result文件当中。
 def image_deal(f):
     filepath = os.path.join(url, f)
     im=Image.open(filepath)
@@ -37,7 +41,6 @@ def image_deal(f):
     cnt=0
     count=0
     result=r"./result/"
-    # im.show()
     #单个字符分割出来
     for i in range(width-1):
         mark=0
@@ -73,7 +76,6 @@ def image_deal(f):
                 logfile.write('\n')
             logfile.close()
             num=knn(str(cnt)+'.txt')
-            #result.append(num)
             result+=num
     result+=".png"
     print result
@@ -81,7 +83,10 @@ def image_deal(f):
 
 
 
-if __name__ == '__main__':
+def start_recognize(url):
     for imgfile in os.listdir(url):
         if imgfile.endswith(".png"):
             image_deal(imgfile)
+
+# if __name__=='__main__':
+#     start_recognize(url)
