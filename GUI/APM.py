@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'APM.ui'
 #
-# Created: Mon Sep 05 23:23:11 2016
+# Created: Sat Sep 10 01:26:53 2016
 #      by: PyQt4 UI code generator 4.11.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -126,7 +126,7 @@ class APMUi(object):
         self.label_13.setGeometry(QtCore.QRect(20, 60, 81, 21))
         self.label_13.setObjectName(_fromUtf8("label_13"))
         self.label_14 = QtGui.QLabel(self.groupBox_4)
-        self.label_14.setGeometry(QtCore.QRect(20, 100, 81, 16))
+        self.label_14.setGeometry(QtCore.QRect(10, 100, 91, 20))
         self.label_14.setObjectName(_fromUtf8("label_14"))
         self._titleelement_ = QtGui.QLineEdit(self.groupBox_4)
         self._titleelement_.setGeometry(QtCore.QRect(120, 20, 171, 20))
@@ -134,9 +134,9 @@ class APMUi(object):
         self._contextelement_ = QtGui.QLineEdit(self.groupBox_4)
         self._contextelement_.setGeometry(QtCore.QRect(120, 60, 171, 20))
         self._contextelement_.setObjectName(_fromUtf8("_contextelement_"))
-        self._buttonelement_ = QtGui.QLineEdit(self.groupBox_4)
-        self._buttonelement_.setGeometry(QtCore.QRect(120, 100, 171, 20))
-        self._buttonelement_.setObjectName(_fromUtf8("_buttonelement_"))
+        self._requesturl__ = QtGui.QLineEdit(self.groupBox_4)
+        self._requesturl__.setGeometry(QtCore.QRect(120, 100, 171, 20))
+        self._requesturl__.setObjectName(_fromUtf8("_requesturl__"))
         self.label_16 = QtGui.QLabel(self.groupBox_4)
         self.label_16.setGeometry(QtCore.QRect(10, 130, 91, 16))
         self.label_16.setObjectName(_fromUtf8("label_16"))
@@ -215,6 +215,8 @@ class APMUi(object):
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
         MainWindow.setStatusBar(self.statusbar)
 
+
+        #这是手动添加的部分
         self._timer_ = QtCore.QTimer()
         self._timer_.timeout.connect(self.timecallfunc)
         self._timer_.start(100)
@@ -237,9 +239,10 @@ class APMUi(object):
         self._urlBox_.activated[str].connect(self.changeurl)
         self._urllist_.activated.connect(self.changeurl1)
         self._ifautopost_.clicked.connect(self.autopost)
+        #添加结束
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -266,7 +269,7 @@ class APMUi(object):
         self.groupBox_4.setTitle(_translate("MainWindow", "页面元素设置", None))
         self.label_12.setText(_translate("MainWindow", "标题输入元素：", None))
         self.label_13.setText(_translate("MainWindow", "内容输入元素：", None))
-        self.label_14.setText(_translate("MainWindow", "发帖按钮元素：", None))
+        self.label_14.setText(_translate("MainWindow", "提交请求的url:", None))
         self.label_16.setText(_translate("MainWindow", "验证码图片元素：", None))
         self.label_17.setText(_translate("MainWindow", "验证码输入元素：", None))
         self.label_6.setText(_translate("MainWindow", "发帖数量：", None))
@@ -283,6 +286,7 @@ class APMUi(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab3), _translate("MainWindow", "自动回帖", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab4), _translate("MainWindow", "信息统计", None))
 
+    #增加的函数
     def addaccount(self):
         if self._username_.text() == "" or self._password_.text() == "":
             return
@@ -395,8 +399,8 @@ class APMUi(object):
     def getcontextelement(self):
         return self._contextelement_.text()
 
-    def getbuttonelement(self):
-        return self._buttonelement_.text()
+    def getrequesturl(self):
+        return self._requesturl__.text()
 
     def getcaptchapicelement(self):
         return self._captchapicelement_.text()
