@@ -6,4 +6,4 @@
  1. 增加验证码输入元素输入框，获取输入框文本函数--getcaptchainputelement;
 
 ###9月9日修改
- 1. 将按钮输入元素输入框重命名为提交请求的url，get函数重命名为--getrequesturl;
+ 2.将按钮输入元素输入框重命名为提交请求的url，get函数重命名为--getrequesturl;
